@@ -15,6 +15,7 @@ current_client = None
 
 
 async def check_channel(link):
+    # BUG RETURN ON ACC BANNED
     await wait(1)
 
     global current_client
@@ -36,7 +37,7 @@ async def check_channel(link):
     except (InviteHashExpired, UsernameInvalid):
         pass
     except FloodWait as fw:
-        print_destroyable_text(f'[INFO] Сплю {fw.value} секунд (Floodwait Error)')
+        print(f'[INFO] Sleeping {fw.value} seconds (Floodwait Error)')
         rotate_session()
         try:
             await check_channel(link)
@@ -101,12 +102,6 @@ def rotate_session():
         print(f'you should add some pyrogram .session accounts in data folder')
         sys.exit()
 
-
-def print_destroyable_text(text):
-    print(text, end="")
-    print("\r", end="")
-
-
 def remove_session():
     global current_client
     global telegram_clients
@@ -131,7 +126,7 @@ async def main():
     print('TQqYH58Lhg1zNoaXNZERRtUyX31FRRHUoo')
     print('- My GitHub: https://github.com/plutonium777')
     print('- My Telegram: https://t.me/wasd_plutonium')
-    print_destroyable_text('Started! Initializing.')
+    print('Started! Initializing.')
     await init_sessions()
     print(f'Initialized {len(telegram_clients)} accounts.')
     channels = get_channels_from_file()
