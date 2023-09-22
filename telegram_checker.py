@@ -123,6 +123,9 @@ async def deinit_sessions():
 
 
 async def main():
+    print('- If this project was useful, here is my USDT TRC20 address: ')
+    print('TQqYH58Lhg1zNoaXNZERRtUyX31FRRHUoo')
+    print('- My GitHub: https://github.com/plutonium777')
     print_destroyable_text('Started! Initializing.')
     await init_sessions()
     print(f'Initialized {len(telegram_clients)} accounts.')
