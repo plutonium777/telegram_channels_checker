@@ -92,10 +92,14 @@ async def init_sessions():
 
 
 def rotate_session():
-    global current_client
-    global telegram_clients_iter
+    try:
+        global current_client
+        global telegram_clients_iter
 
-    current_client = telegram_clients_iter.__next__()
+        current_client = telegram_clients_iter.__next__()
+    except StopIteration:
+        print(f'you should add some pyrogram .session accounts in data folder')
+        sys.exit()
 
 
 def print_destroyable_text(text):
@@ -126,6 +130,7 @@ async def main():
     print('- If this project was useful, here is my USDT TRC20 address: ')
     print('TQqYH58Lhg1zNoaXNZERRtUyX31FRRHUoo')
     print('- My GitHub: https://github.com/plutonium777')
+    print('- My Telegram: https://t.me/wasd_plutonium')
     print_destroyable_text('Started! Initializing.')
     await init_sessions()
     print(f'Initialized {len(telegram_clients)} accounts.')
