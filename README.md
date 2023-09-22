@@ -12,11 +12,21 @@ A simple Python tool to check a list of Telegram channels, providing essential i
 
 ## Usage
 1. Prepare a text file containing a list of Telegram channel links, one link per line.
-2. Run the script, providing the path to the text file as input.
-3. The script will process each channel link and display relevant information.
+2. Add some accounts in ./data/ folder.
+3. Run the script, providing the path to the text file as input.
+4. The script will process each channel link and display relevant information.
 
 ## Installation
 1. Clone this repository:
 
    ```shell
-   git clone https://github.com/your-username/telegram_channels_checker.git
+   git clone https://github.com/plutonium777/telegram_channels_checker.git
+2. Change directory:
+   ```shell
+   cd telegram_channels_checker
+3. Install requirements:
+   ```shell
+   py -m pip install -r requirements.txt
+4. Run
+   ```shell
+   py telegram_checker.py
